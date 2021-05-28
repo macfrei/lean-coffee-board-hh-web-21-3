@@ -2,7 +2,7 @@
   "name": "lean-coffee-board",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
     "build:create-user": "npm run shebang:create-user && npm run chmod:create-user",
