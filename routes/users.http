@@ -23,3 +23,6 @@ Content-Type: application/json
 {
     "name": "Fritz"
 }
+
+### DELETE delete user
+DELETE http://localhost:4000/api/users/0

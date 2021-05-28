@@ -29,4 +29,13 @@ router.patch('/:id', (request, response, next) => {
   user ? response.status(200).json(updatedUser) : next()
 })
 
+router.delete('/:id', (request, response, next) => {
+  const { id } = request.params
+
+  const deletedUser = users.find(user => user.id === id)
+  users.filter(user => user.id !== id)
+
+  deletedUser ? response.status(204) : next()
+})
+
 module.exports = router
