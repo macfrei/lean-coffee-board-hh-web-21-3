@@ -1,0 +1,28 @@
+# Cards
+
+### GET '/api/cards/
+GET http://localhost:4000/api/cards
+
+### GET single cards by id '/api/cards/:id'
+GET http://localhost:4000/api/cards/0
+
+### POST new cards
+POST http://localhost:4000/api/cards
+Content-Type: application/json
+
+{
+    "text": "Hermione Granger, who is this?",
+    "votes": 26,
+    "author": "Harry"
+}
+
+### PATCH update cards
+PATCH http://localhost:4000/api/cards/0
+Content-Type: application/json
+
+{
+    "author": "Fritz"
+}
+
+### DELETE delete cards
+DELETE http://localhost:4000/api/cards/1
