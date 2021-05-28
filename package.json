@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon server.js",
     "build:create-user": "npm run shebang:create-user && npm run chmod:create-user",
     "shebang:create-user": "echo '#!/usr/bin/env node' > bin/create-user && cat create-user.js >> bin/create-user",
     "chmod:create-user": "chmod +x bin/create-user",
@@ -16,6 +17,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "mongodb": "^3.6.9"
+    "mongodb": "^3.6.9",
+    "nodemon": "^2.0.7"
   }
 }
