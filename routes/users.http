@@ -5,3 +5,13 @@ GET http://localhost:4000/api/users
 
 ### GET single user by id '/api/users/:id'
 GET http://localhost:4000/api/users/0
+
+### POST new user
+POST http://localhost:4000/api/users
+Content-Type: application/json
+
+{
+    "name": "Hermione",
+    "age": 26,
+    "email": "hermy@granger.com"
+}

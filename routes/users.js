@@ -12,4 +12,10 @@ router.get('/:id', (request, response) => {
   response.send(user)
 })
 
+router.post('/', (request, response) => {
+  const newUser = request.body
+  users.push(newUser)
+  response.status(201).json(newUser)
+})
+
 module.exports = router
