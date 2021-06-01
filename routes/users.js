@@ -2,40 +2,40 @@ const express = require('express')
 const users = require('../users.json')
 const router = express.Router()
 
-router.get('/', (request, response, next) => {
-  response.send(users)
+router.get('/', (req, res, next) => {
+  res.send(users)
 })
 
-router.get('/:id', (request, response, next) => {
-  const { id } = request.params
+router.get('/:id', (req, res, next) => {
+  const { id } = req.params
   const user = users.find(user => user.id === id)
-  user ? response.send(user) : next()
+  user ? res.send(user) : next()
 })
 
-router.post('/', (request, response, next) => {
-  const newUser = request.body
+router.post('/', (req, res, next) => {
+  const newUser = req.body
   users.push(newUser)
-  response.status(201).json(newUser)
+  res.status(201).json(newUser)
 })
 
-router.patch('/:id', (request, response, next) => {
-  const { id } = request.params
+router.patch('/:id', (req, res, next) => {
+  const { id } = req.params
 
   const index = users.findIndex(user => user.id === id)
   const user = users[index]
-  const updatedUser = { ...user, ...request.body }
+  const updatedUser = { ...user, ...req.body }
   users.splice(index, 1, updatedUser)
 
-  user ? response.status(200).json(updatedUser) : next()
+  user ? res.status(200).json(updatedUser) : next()
 })
 
-router.delete('/:id', (request, response, next) => {
-  const { id } = request.params
+router.delete('/:id', (req, res, next) => {
+  const { id } = req.params
 
   const deletedUser = users.find(user => user.id === id)
   users.filter(user => user.id !== id)
 
-  deletedUser ? response.status(204) : next()
+  deletedUser ? res.status(204) : next()
 })
 
 module.exports = router

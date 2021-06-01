@@ -1,4 +1,4 @@
-module.exports = (error, request, response, next) => {
-  console.log(error)
-  response.status(404).send('Not found')
+module.exports = (err, req, res, next) => {
+  console.error(err)
+  res.status(404).send('Not found')
 }
