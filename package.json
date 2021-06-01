@@ -16,8 +16,9 @@
   "author": "Lene Frei",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.0.0-alpha.8",
-    "mongodb": "^3.6.9",
-    "nodemon": "^2.0.7"
+    "express": "5.0.0-alpha.8",
+    "mongodb": "3.6.9",
+    "mongoose": "5.12.12",
+    "nodemon": "2.0.7"
   }
 }
