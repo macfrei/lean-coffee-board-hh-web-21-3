@@ -1,0 +1,30 @@
+# Cards
+
+@validCardId = 60b66bcfd618fa61e1be08ef
+
+### GET '/api/cards/
+GET http://localhost:4000/api/cards
+
+### GET single cards by id '/api/cards/:id'
+GET http://localhost:4000/api/cards/{{validCardId}}
+
+### POST new cards
+POST http://localhost:4000/api/cards
+Content-Type: application/json
+
+{
+    "text": "Hermione Granger, who is this?",
+    "votes": 26,
+    "author": "60af5fe3dc56f3cfe4932fb4"
+}
+
+### PATCH update cards
+PATCH http://localhost:4000/api/cards/{{validCardId}}
+Content-Type: application/json
+
+{
+    "text": "Who is Hermione Granger?"
+}
+
+### DELETE delete cards
+DELETE http://localhost:4000/api/cards/{{validCardId}}
