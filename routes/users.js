@@ -1,41 +1,31 @@
 const express = require('express')
-const users = require('../users.json')
 const router = express.Router()
+const User = require('../models/User')
 
-router.get('/', (req, res, next) => {
-  res.send(users)
+router.get('/', async (req, res) => {
+  const { count, sort } = req.query
+  console.log('Query params', count, sort)
+  res.json(await User.find())
 })
 
-router.get('/:id', (req, res, next) => {
+router.get('/:id', async (req, res) => {
   const { id } = req.params
-  const user = users.find(user => user.id === id)
-  user ? res.send(user) : next()
+  res.json(await User.findById(id))
 })
 
-router.post('/', (req, res, next) => {
-  const newUser = req.body
-  users.push(newUser)
-  res.status(201).json(newUser)
+router.post('/', async (req, res) => {
+  res.status(201).json(await User.create(req.body))
 })
 
-router.patch('/:id', (req, res, next) => {
+router.patch('/:id', async (req, res) => {
   const { id } = req.params
-
-  const index = users.findIndex(user => user.id === id)
-  const user = users[index]
-  const updatedUser = { ...user, ...req.body }
-  users.splice(index, 1, updatedUser)
-
-  user ? res.status(200).json(updatedUser) : next()
+  res.json(await User.findByIdAndUpdate(id, req.body, { new: true }))
 })
 
-router.delete('/:id', (req, res, next) => {
+router.delete('/:id', async (req, res) => {
   const { id } = req.params
 
-  const deletedUser = users.find(user => user.id === id)
-  users.filter(user => user.id !== id)
-
-  deletedUser ? res.status(204) : next()
+  res.status(204).json(await User.findByIdAndDelete(id))
 })
 
 module.exports = router
