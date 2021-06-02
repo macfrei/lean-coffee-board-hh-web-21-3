@@ -1,4 +1,11 @@
 import styled from 'styled-components/macro'
+import PropTypes from 'prop-types'
+
+Card.propTypes = {
+  text: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  votes: PropTypes.number.isRequired,
+}
 
 export default function Card({ text, author, votes }) {
   return (
