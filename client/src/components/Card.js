@@ -18,7 +18,6 @@ const Layout = styled.section`
   padding: 16px;
   border-radius: 8px;
   box-shadow: rgb(25 50 81 / 20%) 0 2px 11px 0;
-  max-width: max-content;
   font-weight: 300;
 
   p {
