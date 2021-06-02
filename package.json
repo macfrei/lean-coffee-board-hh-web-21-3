@@ -5,13 +5,10 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
-    "build:create-user": "npm run shebang:create-user && npm run chmod:create-user",
-    "shebang:create-user": "echo '#!/usr/bin/env node' > bin/create-user && cat create-user.js >> bin/create-user",
-    "chmod:create-user": "chmod +x bin/create-user",
-    "build:read-users": "npm run shebang:read-users && npm run chmod:read-users",
-    "shebang:read-users": "echo '#!/usr/bin/env node' > bin/read-users && cat read-users.js >> bin/read-users",
-    "chmod:read-users": "chmod +x bin/read-users",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev:server": "nodemon server.js",
+    "dev:client": "cd client && npm start",
+    "test": "cd client && npm test",
+    "storybook": "cd client && npm run storybook"
   },
   "author": "Lene Frei",
   "license": "ISC",
